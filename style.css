@@ -41,7 +41,7 @@ body{
   align-items: center;
   gap: 16px;
   padding: 14px 20px;
-  background: rgba(11,13,18,.7);
+  background: rgba(20, 40, 90, 0.7);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
