@@ -2,9 +2,12 @@
    Game Marketplace (Vanilla JS)
    - Catálogo con filtros, búsqueda, ordenamiento
    - Carrito con persistencia en localStorage
+   - Cambios:
+     1) Filtro por estudio
+     2) Botón "Ver detalles"
+     3) Animación al agregar al carrito
    ============================================================ */
 
-// ----- Datos de ejemplo (puedes reemplazar por fetch a tu API) -----
 const PRODUCTS = [
   {
     id: "g1",
@@ -87,6 +90,7 @@ const state = {
   minPrice: "",
   maxPrice: "",
   sort: "relevance",
+  studio: "",      // ✅ nuevo filtro por estudio
   cart: loadCart()
 };
 
@@ -121,19 +125,23 @@ const $grid = document.getElementById("catalogGrid");
 const $empty = document.getElementById("emptyState");
 
 function applyFilters(products) {
-  const { query, platform, minPrice, maxPrice } = state;
+  const { query, platform, minPrice, maxPrice, studio } = state;
   return products.filter(p => {
+    const q = query.toLowerCase();
     const matchesQuery =
-      !query ||
-      p.title.toLowerCase().includes(query) ||
-      p.studio.toLowerCase().includes(query);
+      !q ||
+      p.title.toLowerCase().includes(q) ||
+      p.studio.toLowerCase().includes(q);
 
     const matchesPlatform = platform === "all" || p.platform === platform;
+
+    const s = studio.toLowerCase();
+    const matchesStudio = !s || p.studio.toLowerCase().includes(s);
 
     const priceOKMin = minPrice === "" || p.price >= Number(minPrice);
     const priceOKMax = maxPrice === "" || p.price <= Number(maxPrice);
 
-    return matchesQuery && matchesPlatform && priceOKMin && priceOKMax;
+    return matchesQuery && matchesPlatform && matchesStudio && priceOKMin && priceOKMax;
   });
 }
 
@@ -188,7 +196,10 @@ function renderCatalog() {
         <p class="muted">${p.studio}</p>
         <div class="card-row">
           <span class="price">${formatCurrency(p.price)}</span>
-          <button class="btn btn-sm btn-primary" data-add="${p.id}">Agregar</button>
+          <div class="actions">
+            <button class="btn btn-sm btn-primary" data-add="${p.id}">Agregar</button>
+            <button class="btn btn-sm btn-ghost" data-details="${p.id}">Ver detalles</button>
+          </div>
         </div>
         <p class="tiny muted">Lanzamiento: ${new Date(p.release).toLocaleDateString("es-MX")}</p>
       </div>
@@ -234,6 +245,13 @@ function addToCart(productId) {
   saveCart();
   renderCart();
   animateCartCount();
+
+  // ✅ Animación visual en la card al agregar
+  const card = document.querySelector(`[data-add="${productId}"]`)?.closest(".card");
+  if (card) {
+    card.classList.add("added");
+    setTimeout(() => card.classList.remove("added"), 500);
+  }
 }
 
 function removeFromCart(productId) {
@@ -299,11 +317,20 @@ document.addEventListener("click", (e) => {
   const incId = e.target.getAttribute("data-inc");
   const decId = e.target.getAttribute("data-dec");
   const delId = e.target.getAttribute("data-del");
+  const detId = e.target.getAttribute("data-details");
 
   if (addId) addToCart(addId);
   if (incId) addToCart(incId);
   if (decId) removeFromCart(decId);
   if (delId) deleteFromCart(delId);
+
+  // ✅ Acción simple para "Ver detalles" (puedes luego cambiar a modal)
+  if (detId) {
+    const p = PRODUCTS.find(x => x.id === detId);
+    if (p) {
+      alert(`🎮 ${p.title}\nPlataforma: ${p.platform}\nEstudio: ${p.studio}\nPrecio: ${formatCurrency(p.price)}\nLanzamiento: ${new Date(p.release).toLocaleDateString("es-MX")}`);
+    }
+  }
 });
 
 $btnCart.addEventListener("click", openCart);
@@ -323,7 +350,7 @@ const $platform = document.getElementById("platformFilter");
 const $minPrice = document.getElementById("minPrice");
 const $maxPrice = document.getElementById("maxPrice");
 const $sort = document.getElementById("sortSelect");
-const $btnClearFilters = document.getElementById("btnClearFilters");
+const $studio = document.getElementById("studioFilter"); // ✅ nuevo
 
 function updateAndRender() {
   renderCatalog();
@@ -354,18 +381,27 @@ $sort.addEventListener("change", () => {
   updateAndRender();
 });
 
+// ✅ evento del filtro estudio
+$studio.addEventListener("input", () => {
+  state.studio = $studio.value.trim().toLowerCase();
+  updateAndRender();
+});
+
+const $btnClearFilters = document.getElementById("btnClearFilters");
 $btnClearFilters.addEventListener("click", () => {
   state.query = "";
   state.platform = "all";
   state.minPrice = "";
   state.maxPrice = "";
   state.sort = "relevance";
+  state.studio = ""; // ✅ limpia filtro estudio
 
   $search.value = "";
   $platform.value = "all";
   $minPrice.value = "";
   $maxPrice.value = "";
   $sort.value = "relevance";
+  $studio.value = ""; // ✅ también limpia el input
 
   updateAndRender();
 });

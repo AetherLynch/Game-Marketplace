@@ -125,7 +125,7 @@ body{
 }
 .toolbar-row{
   display: grid;
-  grid-template-columns: repeat(5, minmax(0,1fr));
+  grid-template-columns: repeat(6, minmax(0,1fr)); /* +1 columna por 'Estudio' */
   gap: 12px;
 }
 .field{ display: grid; gap: 6px; }
@@ -173,9 +173,15 @@ body{
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform .08s ease, border-color .2s ease;
+  transition: transform .08s ease, border-color .2s ease, box-shadow .2s ease, outline-color .2s ease;
 }
 .card:hover{ transform: translateY(-2px); border-color: #35507a; }
+
+/* ✅ Animación cuando se agrega al carrito */
+.card.added {
+  outline: 2px solid var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+}
 
 .card-media{
   position: relative; aspect-ratio: 16/10; background: #0f1522;
