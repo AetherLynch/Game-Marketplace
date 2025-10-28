@@ -19,7 +19,7 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
   background: 
-    linear-gradient(to bottom, #0084ff 5%, #0b0d12 80%),
+    linear-gradient(to bottom, #0084ff 0%, #0b0d12 80%),
     radial-gradient(1200px 600px at 70% -10%, #1b2234 0%, var(--bg) 60%) fixed;
   background-blend-mode: overlay;
 }

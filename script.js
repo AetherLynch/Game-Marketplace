@@ -10,7 +10,7 @@ const PRODUCTS = [
     id: "g1",
     title: "Elden Ring",
     platform: "PC",
-    price: 1199,
+    price: 1000,
     studio: "FromSoftware",
     release: "2022-02-25",
     cover: "img/EldenRing.webp"
@@ -19,7 +19,7 @@ const PRODUCTS = [
     id: "g2",
     title: "The Legend of Zelda: Tears of the Kingdom",
     platform: "Nintendo",
-    price: 1399,
+    price: 1199,
     studio: "Nintendo",
     release: "2023-05-12",
     cover: "img/TheLegendofZelda.webp"
@@ -28,7 +28,7 @@ const PRODUCTS = [
     id: "g3",
     title: "Forza Horizon 5",
     platform: "Xbox",
-    price: 999,
+    price: 799,
     studio: "Playground Games",
     release: "2021-11-09",
     cover: "img/Forza.jpg"
@@ -37,7 +37,7 @@ const PRODUCTS = [
     id: "g4",
     title: "God of War Ragnarök",
     platform: "PlayStation",
-    price: 1299,
+    price: 899,
     studio: "Santa Monica Studio",
     release: "2022-11-09",
     cover: "img/ragnarok.jpg"
@@ -46,7 +46,7 @@ const PRODUCTS = [
     id: "g5",
     title: "Hades II (Accesso anticipado)",
     platform: "PC",
-    price: 549,
+    price: 459,
     studio: "Supergiant Games",
     release: "2024-05-06",
     cover: "img/hades.jpg"
@@ -55,7 +55,7 @@ const PRODUCTS = [
     id: "g6",
     title: "Mario Kart 8 Deluxe",
     platform: "Nintendo",
-    price: 999,
+    price: 699,
     studio: "Nintendo",
     release: "2017-04-28",
     cover: "img/mario.jpg"
@@ -64,7 +64,7 @@ const PRODUCTS = [
     id: "g7",
     title: "Spider-Man 2",
     platform: "PlayStation",
-    price: 1299,
+    price: 999,
     studio: "Insomniac Games",
     release: "2023-10-20",
     cover: "img/spiderman.jpg"
@@ -73,7 +73,7 @@ const PRODUCTS = [
     id: "g8",
     title: "Starfield",
     platform: "Xbox",
-    price: 1199,
+    price: 999,
     studio: "Bethesda",
     release: "2023-09-06",
     cover: "img/starfiel.jpg"
