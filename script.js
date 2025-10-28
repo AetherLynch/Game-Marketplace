@@ -13,7 +13,7 @@ const PRODUCTS = [
     price: 1199,
     studio: "FromSoftware",
     release: "2022-02-25",
-    cover: "https://via.placeholder.com/400x260?text=Elden+Ring"
+    cover: "img/EldenRing.webp"
   },
   {
     id: "g2",
@@ -22,7 +22,7 @@ const PRODUCTS = [
     price: 1399,
     studio: "Nintendo",
     release: "2023-05-12",
-    cover: "https://via.placeholder.com/400x260?text=Zelda+TOTK"
+    cover: "img/TheLegendofZelda.webp"
   },
   {
     id: "g3",
@@ -31,7 +31,7 @@ const PRODUCTS = [
     price: 999,
     studio: "Playground Games",
     release: "2021-11-09",
-    cover: "https://via.placeholder.com/400x260?text=Forza+Horizon+5"
+    cover: "img/Forza.jpg"
   },
   {
     id: "g4",
@@ -40,7 +40,7 @@ const PRODUCTS = [
     price: 1299,
     studio: "Santa Monica Studio",
     release: "2022-11-09",
-    cover: "https://via.placeholder.com/400x260?text=GoW+Ragnarok"
+    cover: "img/ragnarok.jpg"
   },
   {
     id: "g5",
@@ -49,7 +49,7 @@ const PRODUCTS = [
     price: 549,
     studio: "Supergiant Games",
     release: "2024-05-06",
-    cover: "https://via.placeholder.com/400x260?text=Hades+II"
+    cover: "img/hades.jpg"
   },
   {
     id: "g6",
@@ -58,7 +58,7 @@ const PRODUCTS = [
     price: 999,
     studio: "Nintendo",
     release: "2017-04-28",
-    cover: "https://via.placeholder.com/400x260?text=Mario+Kart+8"
+    cover: "img/mario.jpg"
   },
   {
     id: "g7",
@@ -67,7 +67,7 @@ const PRODUCTS = [
     price: 1299,
     studio: "Insomniac Games",
     release: "2023-10-20",
-    cover: "https://via.placeholder.com/400x260?text=Spider-Man+2"
+    cover: "img/spiderman.jpg"
   },
   {
     id: "g8",
@@ -76,7 +76,7 @@ const PRODUCTS = [
     price: 1199,
     studio: "Bethesda",
     release: "2023-09-06",
-    cover: "https://via.placeholder.com/400x260?text=Starfield"
+    cover: "img/starfiel.jpg"
   }
 ];
 
