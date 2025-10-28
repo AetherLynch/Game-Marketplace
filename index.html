@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="brand">
+      <span class="logo">🎮</span>
+      <h1>Game Marketplace</h1>
+    </div>
+
+    <nav class="actions">
+      <button id="btnCart" class="btn btn-primary" aria-controls="cartDrawer" aria-expanded="false">
+        🛒 Carrito <span id="cartCount" class="badge">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Filtros -->
+  <section class="toolbar container">
+    <div class="toolbar-row">
+      <label class="field">
+        <span class="field-label">Buscar</span>
+        <input type="search" id="searchInput" placeholder="Busca por título, estudio..." />
+      </label>
+
+      <label class="field">
+        <span class="field-label">Plataforma</span>
+        <select id="platformFilter">
+          <option value="all">Todas</option>
+          <option value="PC">PC</option>
+          <option value="PlayStation">PlayStation</option>
+          <option value="Xbox">Xbox</option>
+          <option value="Nintendo">Nintendo</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Rango de precio</span>
+        <div class="range">
+          <input type="number" id="minPrice" placeholder="Mín" min="0" />
+          <span>—</span>
+          <input type="number" id="maxPrice" placeholder="Máx" min="0" />
+        </div>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Ordenar</span>
+        <select id="sortSelect">
+          <option value="relevance">Relevancia</option>
+          <option value="price-asc">Precio ↑</option>
+          <option value="price-desc">Precio ↓</option>
+          <option value="title-asc">Título A–Z</option>
+          <option value="title-desc">Título Z–A</option>
+          <option value="date-desc">Más recientes</option>
+        </select>
+      </label>
+
+      <button id="btnClearFilters" class="btn btn-ghost">Limpiar</button>
+    </div>
+  </section>
+
+  <!-- Listado de productos -->
+  <main class="container">
+    <div id="catalogGrid" class="grid"></div>
+    <div id="emptyState" class="empty" hidden>
+      <p>No encontramos resultados con los filtros aplicados.</p>
+    </div>
+  </main>
+
+  <!-- Cajón del carrito -->
+  <aside id="cartDrawer" class="cart" aria-hidden="true">
+    <header class="cart-header">
+      <h2>Tu carrito</h2>
+      <button id="btnCloseCart" class="icon-btn" aria-label="Cerrar carrito">✕</button>
+    </header>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <footer class="cart-footer">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <div class="cart-actions">
+        <button id="btnEmptyCart" class="btn btn-ghost">Vaciar</button>
+        <button id="btnCheckout" class="btn btn-primary">Pagar</button>
+      </div>
+      <p class="cart-hint">* Demo educativo. No se procesan pagos reales.</p>
+    </footer>
+  </aside>
+
+  <!-- Capa para oscurecer el fondo cuando el carrito está abierto -->
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
