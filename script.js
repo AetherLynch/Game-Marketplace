@@ -96,8 +96,9 @@ const state = {
 
 // ----- Utilidades -----
 function formatCurrency(mx) {
- return "MXN " + mx.toLocaleString("es-MX");
-}
+// Decidimos usar símbolo y sufijo MXN:
+return "$" + mx.toLocaleString("es-MX") + " MXN";
+
 
 function loadCart() {
   try {
