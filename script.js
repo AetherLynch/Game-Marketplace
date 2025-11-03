@@ -96,7 +96,7 @@ const state = {
 
 // ----- Utilidades -----
 function formatCurrency(mx) {
-  return mx.toLocaleString("es-MX", { style: "currency", currency: "MXN" });
+  return "$" + mx.toLocaleString("es-MX");
 }
 
 function loadCart() {
